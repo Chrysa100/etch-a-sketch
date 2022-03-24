@@ -1,0 +1,18 @@
+#container{
+  background-color: blue; 
+  display:flex;
+  padding:5px; 
+  margin:5px;
+  width:max-content;
+  height:max-content;
+}
+
+
+
+.square{
+    background-color: aqua;
+    border-style:dotted;
+    border-color: black;
+    width:50px;
+    height:50px;
+  }
