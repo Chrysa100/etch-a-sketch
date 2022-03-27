@@ -17,3 +17,16 @@
   flex:1 1 auto;
   border:1px solid rgb(51, 53, 163);
 }
+
+
+button{
+  font-size: 20px;
+  margin:30px;
+  padding:10px;
+  border-radius: 5%;
+}
+
+button :hover{
+    background-color: rgb(51, 53, 163);
+    color:white;
+}

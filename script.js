@@ -20,3 +20,14 @@ for (item of squares){
       e.target.style.backgroundColor="red";    
     });
   }
+
+  
+const button= document.querySelector('button');
+button.addEventListener("click",function(e){
+    for (item of squares){
+      item.style.backgroundColor="rgb(141, 185, 243)";    
+        }
+   // let squaresPerSide = prompt("How many squares per side?","max 100 squares");
+   // setTimeout(createGrid(squaresPerSide), 3000) 
+   });     
+ 
