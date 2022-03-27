@@ -12,3 +12,11 @@ const container = document.querySelector('.wrapper');
       container.appendChild(wrapper); 
 }
 
+
+let squares = document.querySelectorAll('.square');
+
+for (item of squares){
+    item.addEventListener("mouseenter",e=>{   
+      e.target.style.backgroundColor="red";    
+    });
+  }
