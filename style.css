@@ -1,18 +1,19 @@
-#container{
-  background-color: blue; 
+.wrapper {
+  display: flex;
+  width:50vh;
+  height:50vh; 
+  
+ 
+}
+.wrapper > div {
   display:flex;
-  padding:5px; 
-  margin:5px;
-  width:max-content;
-  height:max-content;
+  overflow:hidden;
+  flex-direction:column;
 }
 
-
-
-.square{
-    background-color: aqua;
-    border-style:dotted;
-    border-color: black;
-    width:50px;
-    height:50px;
-  }
+.square {
+  background-color: rgb(141, 185, 243);
+  color: rgb(51, 53, 163);
+  flex:1 1 auto;
+  border:1px solid rgb(51, 53, 163);
+}
