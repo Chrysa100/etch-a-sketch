@@ -41,20 +41,30 @@ button1.addEventListener("click",function(e){
       }
   });
 }
-//button to change the number of squares per side  
-const button2 = document.querySelector('#button2');
+
 //get a reference of all wrappers(columns and container)
 let wrappers = document.querySelectorAll('.wrapper');
 
-button2.addEventListener("click",function(e){
-     for(item of wrappers){
-     removeAllChildNodes(item); //clear the existing grid
+//button to change the number of squares per side  
+const button2 = document.querySelector('#button2');
+button2.addEventListener("click",changeGrid);
+
+//function to clear existing grid and create new grid
+function changeGrid(e){
+    for(item of wrappers){
+        removeAllChildNodes(item); //clear the existing grid
     }
-    let squaresPerSide = prompt("How many squares per side?","max 100 squares");
-    createGrid(squaresPerSide); // make new grid
-    draw();
-    unPaint();
-  });
+    let squaresPerSide=0;
+    while (squaresPerSide<1 || squaresPerSide>100){  
+        squaresPerSide = prompt("Squares per side-max 100");
+        if(squaresPerSide==null){
+          return;
+        }
+    }
+  createGrid(squaresPerSide); // make new grid
+  draw();
+  unPaint();
+}
 
 //function that clears the grid
 function removeAllChildNodes(parent) {
