@@ -1,5 +1,19 @@
-//get a reference of the only existing div
+//get a reference of the parent div and body
 const container = document.querySelector('.wrapper');
+const body = document.querySelector('body');
+//console.log(body);
+//create the buttons
+const buttons = document.createElement('div');
+buttons.id = "buttons";
+body.appendChild(buttons);
+const button1 = document.createElement('button');
+button1.id = "button1";
+button1.textContent = "Clear Drawing";
+buttons.appendChild(button1);
+const button2 = document.createElement('button');
+button2.id = "button2";
+button2.textContent = "New Grid";
+buttons.appendChild(button2);
 
 //call at start the function to create the drawing pad
 createGrid();
@@ -46,13 +60,15 @@ button1.addEventListener("click",function(e){
 let wrappers = document.querySelectorAll('.wrapper');
 
 //button to change the number of squares per side  
-const button2 = document.querySelector('#button2');
+//const button2 = document.querySelector('#button2');
 button2.addEventListener("click",changeGrid);
 
 //function to clear existing grid and create new grid
 function changeGrid(e){
     for(item of wrappers){
-        removeAllChildNodes(item); //clear the existing grid
+        
+      
+      removeAllChildNodes(item); //clear the existing grid
     }
     let squaresPerSide=0;
     while (squaresPerSide<1 || squaresPerSide>100){  
