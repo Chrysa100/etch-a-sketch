@@ -7,18 +7,26 @@ const buttons = document.createElement('div');
 buttons.id = "buttons";
 body.appendChild(buttons);
 const button1 = document.createElement('button');
-button1.id = "button1";
-button1.textContent = "Clear Drawing";
-buttons.appendChild(button1);
 const button2 = document.createElement('button');
-button2.id = "button2";
-button2.textContent = "New Grid";
+const button3 = document.createElement('button');
+const button4 = document.createElement('button');
+button1.id = "button1";
+button2.id = "red";
+button3.id = "multi";
+button4.id = "button4";
+button1.textContent = "Clear Drawing";
+button2.textContent = "Red";
+button3.textContent = "Multi color";
+button4.textContent = "New Grid";
+buttons.appendChild(button1);
 buttons.appendChild(button2);
+buttons.appendChild(button3);
+buttons.appendChild(button4);
 
 //call at start the function to create the drawing pad
 createGrid();
-draw();
-unPaint();
+draw("multi");
+clearDrawing();
 
 //the function that creates the grid
 function createGrid(number=16){
@@ -33,18 +41,30 @@ function createGrid(number=16){
       container.appendChild(wrapper);   
   }      
 }
-//function to do the drawing 
-function draw(){
+function draw(i){
   //get a reference of the freshly created squares
   let squares = document.querySelectorAll('.square');
-  for (square of squares){
+  
+  if(i==="red"){
+   for (square of squares){
       square.addEventListener("mouseenter",e=>{   
       e.target.style.backgroundColor="red";    
       });
+   }  
+  }else if(i==="multi"){
+    for(square of squares){
+      square.addEventListener("mouseenter",e=>{   
+      let a = Math.floor(Math.random() * 250);
+      let b = Math.floor(Math.random() * 250);
+      let c = Math.floor(Math.random() * 250);
+      e.target.style.backgroundColor=`rgb(${a}, ${b},${c})`;
+      });
+    }
   }
 } 
 
-function unPaint(){
+
+function clearDrawing(){
 let squares = document.querySelectorAll('.square');
 //button to clear the drawing   
 const button1= document.querySelector('#button1');
@@ -59,15 +79,19 @@ button1.addEventListener("click",function(e){
 //get a reference of all wrappers(columns and container)
 let wrappers = document.querySelectorAll('.wrapper');
 
-//button to change the number of squares per side  
-//const button2 = document.querySelector('#button2');
-button2.addEventListener("click",changeGrid);
+//button to change the number of squares per side 
+button4.addEventListener("click",changeGrid);
+//button to change teh
+button2.addEventListener("click",function(e){
+draw("red")
+});
+button3.addEventListener("click", function(e){
+  draw("multi")
+});
 
-//function to clear existing grid and create new grid
+//function to change the number of squares per side
 function changeGrid(e){
-    for(item of wrappers){
-        
-      
+    for(item of wrappers){     
       removeAllChildNodes(item); //clear the existing grid
     }
     let squaresPerSide=0;
@@ -77,12 +101,12 @@ function changeGrid(e){
           return;
         }
     }
-  createGrid(squaresPerSide); // make new grid
-  draw();
-  unPaint();
-}
+  createGrid(squaresPerSide); // make new grid 
+  clearDrawing();//make the button1 work
+  draw("multi");
+  }
 
-//function that clears the grid
+//function to clear existing grid
 function removeAllChildNodes(parent) {
     while (parent.firstElementChild) {
        parent.removeChild(parent.firstElementChild);
