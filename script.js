@@ -91,16 +91,20 @@ button3.addEventListener("click", function(e){
 
 //function to change the number of squares per side
 function changeGrid(e){
-    for(item of wrappers){     
-      removeAllChildNodes(item); //clear the existing grid
-    }
+    
     let squaresPerSide=0;
     while (squaresPerSide<1 || squaresPerSide>100){  
         squaresPerSide = prompt("Squares per side-max 100");
-        if(squaresPerSide==null){
+        
+        if(squaresPerSide!==null && squaresPerSide!==undefined){
+          for(item of wrappers){     
+            removeAllChildNodes(item); //clear the existing grid
+          }
+        }else {
           return;
         }
     }
+    
   createGrid(squaresPerSide); // make new grid 
   clearDrawing();//make the button1 work
   draw("multi");
