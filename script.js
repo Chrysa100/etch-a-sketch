@@ -1,7 +1,7 @@
 //get a reference of the parent div and body
 const container = document.querySelector('.wrapper');
 const body = document.querySelector('body');
-//console.log(body);
+
 //create the buttons
 const buttons = document.createElement('div');
 buttons.id = "buttons";
