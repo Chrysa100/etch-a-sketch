@@ -54,9 +54,9 @@ function draw(i){
   }else if(i==="multi"){
     for(square of squares){
       square.addEventListener("mouseenter",e=>{   
-      let a = Math.floor(Math.random() * 250);
-      let b = Math.floor(Math.random() * 250);
-      let c = Math.floor(Math.random() * 250);
+      let a = Math.floor(Math.random() * 255);
+      let b = Math.floor(Math.random() * 255);
+      let c = Math.floor(Math.random() * 255);
       e.target.style.backgroundColor=`rgb(${a}, ${b},${c})`;
       });
     }
@@ -113,5 +113,8 @@ function removeAllChildNodes(parent) {
      }
  }
   
-
+//create the footer
+const footer = document.createElement('footer');
+footer.innerHTML = `Created by <a href=https://github.com/chrysa100> Chrysa100</a>`;
+body.appendChild(footer);
     
