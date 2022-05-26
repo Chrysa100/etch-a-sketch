@@ -9,4 +9,4 @@ What I got occupied with during this project:
 
 
 
-<a href = "https://github.com/Chrysa100/etch-a-sketch.git"> Live Preview</a>
+<a href = https://chrysa100.github.io/etch-a-sketch> Live Preview</a>
